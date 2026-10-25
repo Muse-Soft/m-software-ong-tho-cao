@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ông Thợ Cạo — Tiệm cắt tóc nam</title>
+<meta name="description" content="Ông Thợ Cạo — tiệm cắt tóc nam phong cách vintage. Cắt tóc, cạo râu khăn nóng, gội và tạo kiểu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1F2A24; --bg-alt:#28352D; --ink:#F2EAD9; --ink-dim:#C9BFA8;
+    --gold:#B98A2F; --line:#3E4A42;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;font-size:17px;line-height:1.7}
+  h1,h2,h3,.price,.step-num{font-family:"Playfair Display",serif}
+  h1{font-size:64px;line-height:1.15}
+  h2{font-size:40px;line-height:1.2;margin-bottom:8px}
+  h3{font-size:24px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  .kicker{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;margin-bottom:16px}
+  .rule{width:56px;height:2px;background:var(--gold);margin:20px 0}
+  .lead{color:var(--ink-dim);max-width:640px}
+  .btn{display:inline-block;background:var(--gold);color:#1F2A24;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:2px}
+  .btn:hover{filter:brightness(1.08)}
+
+  /* 1. Hero */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0}
+  .hero img.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,42,36,.25) 0%,rgba(31,42,36,.55) 55%,rgba(31,42,36,.96) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:96px;padding-top:160px;width:100%}
+  .hero p.tag{color:var(--ink);max-width:560px;margin:20px 0 32px;font-size:18px}
+  .hero .caption{margin-top:28px;color:var(--ink-dim);font-size:13px}
+
+  /* 2. Dịch vụ */
+  .services{background:var(--bg-alt)}
+  .price-list{margin-top:36px;border-top:1px solid var(--line)}
+  .price-row{display:flex;align-items:baseline;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .price-row .name{font-size:20px;font-weight:500}
+  .price-row .dots{flex:1;border-bottom:1px dotted var(--line);min-width:40px}
+  .price{color:var(--gold);font-size:24px;white-space:nowrap}
+  .price-note{color:var(--ink-dim);font-size:14px;white-space:nowrap}
+
+  /* 3. Đội thợ */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+  .member img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+  .member h3{margin-top:16px}
+  .member .role{color:var(--gold);font-weight:700}
+  .member .note,.gallery figcaption,.member figcaption{color:var(--ink-dim);font-size:14px;margin-top:4px}
+
+  /* 4. Trải nghiệm */
+  .steps{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px}
+  .step-num{color:var(--gold);font-size:64px;line-height:1}
+  .step h3{margin:12px 0 8px}
+  .step p{color:var(--ink-dim);font-size:16px}
+
+  /* 5. Không gian */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+
+  /* 6. Form */
+  .booking{background:var(--bg-alt)}
+  form{margin-top:36px;max-width:640px}
+  label{display:block;font-weight:500;margin:20px 0 6px}
+  input,select,textarea{width:100%;background:#1F2A24;border:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:16px;padding:12px 14px;border-radius:2px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  textarea{min-height:110px;resize:vertical}
+  .form-note{margin-top:20px;color:var(--ink-dim);font-size:15px}
+  .form-ok{display:none;margin-top:20px;padding:16px;border:1px solid var(--gold);color:var(--ink)}
+  .form-ok.show{display:block}
+  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--ink-dim);font-size:15px}
+  footer p{margin:4px 0}
+
+  @media (max-width:768px){
+    body{font-size:16px;line-height:1.6}
+    h1{font-size:40px} h2{font-size:30px} h3{font-size:20px}
+    .price{font-size:20px}
+    section{padding:56px 0}
+    .team-grid,.gallery,.steps-grid{grid-template-columns:1fr}
+    .hero .wrap{padding-bottom:64px}
+    .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&q=80&auto=format&fit=crop" alt="Ảnh mẫu: thợ cắt tóc trong tiệm barber tối ấm">
+  <div class="wrap">
+    <p class="kicker">Tiệm cắt tóc nam</p>
+    <h1>Ông Thợ Cạo</h1>
+    <div class="rule"></div>
+    <p class="tag">Một chiếc ghế da, một lưỡi dao sắc và đủ thời gian để bạn ra về với diện mạo chỉn chu nhất.</p>
+    <a class="btn" href="#dat-lich">Đặt lịch</a>
+    <p class="caption">Ảnh mẫu — ghế barber da nâu dưới đèn ấm.</p>
+  </div>
+</header>
+
+<!-- 2. DỊCH VỤ VÀ GIÁ -->
+<section class="services">
+  <div class="wrap">
+    <p class="kicker">Bảng giá</p>
+    <h2>Dịch vụ và giá</h2>
+    <div class="rule"></div>
+    <p class="lead">Giá dưới đây là giá mẫu để tham khảo, chưa phải giá áp dụng chính thức của tiệm.</p>
+    <div class="price-list">
+      <div class="price-row"><span class="name">Cắt tóc</span><span class="dots"></span><span class="price">250.000đ</span><span class="price-note">Giá mẫu</span></div>
+      <div class="price-row"><span class="name">Cạo râu khăn nóng</span><span class="dots"></span><span class="price">150.000đ</span><span class="price-note">Giá mẫu</span></div>
+      <div class="price-row"><span class="name">Combo cắt + cạo</span><span class="dots"></span><span class="price">350.000đ</span><span class="price-note">Giá mẫu</span></div>
+      <div class="price-row"><span class="name">Gội + tạo kiểu</span><span class="dots"></span><span class="price">200.000đ</span><span class="price-note">Giá mẫu</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ĐỘI THỢ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Con người</p>
+    <h2>Đội thợ barber</h2>
+    <div class="rule"></div>
+    <p class="lead">Ba thợ, ba sở trường — tên thật của từng thợ sẽ được bổ sung sau: [CẦN BỔ SUNG].</p>
+    <div class="team-grid">
+      <figure class="member">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80&auto=format&fit=crop" alt="Ảnh mẫu: thợ cạo râu">
+        <h3>Thợ cắt chính</h3>
+        <p class="role">Cắt tóc nam cổ điển và hiện đại</p>
+        <figcaption>Tên thật: [CẦN BỔ SUNG] · Ảnh mẫu</figcaption>
+      </figure>
+      <figure class="member">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=900&q=80&auto=format&fit=crop" alt="Ảnh mẫu: thợ barber đang làm việc">
+        <h3>Thợ cạo râu</h3>
+        <p class="role">Cạo râu dao thẳng, khăn nóng</p>
+        <figcaption>Tên thật: [CẦN BỔ SUNG] · Ảnh mẫu</figcaption>
+      </figure>
+      <figure class="member">
+        <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=900&q=80&auto=format&fit=crop" alt="Ảnh mẫu: thợ tạo kiểu tóc">
+        <h3>Thợ tạo kiểu</h3>
+        <p class="role">Gội, tạo kiểu và chăm sóc tóc</p>
+        <figcaption>Tên thật: [CẦN BỔ SUNG] · Ảnh mẫu</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TRẢI NGHIỆM -->
+<section class="steps">
+  <div class="wrap">
+    <p class="kicker">Trải nghiệm</p>
+    <h2>Trải nghiệm Ông Thợ Cạo</h2>
+    <div class="rule"></div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">01</div><h3>Đón khách</h3><p>Ngồi xuống ghế da, một tách trà nóng và vài phút thư giãn trước khi bắt đầu.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Tư vấn kiểu</h3><p>Thợ lắng nghe và tư vấn kiểu tóc hợp khuôn mặt, chất tóc và thói quen của bạn.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Cắt và cạo khăn nóng</h3><p>Cắt tỉ mỉ từng đường kéo, rồi cạo râu dao thẳng với khăn nóng thư giãn.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Hoàn thiện</h3><p>Vuốt tạo kiểu, phủi tóc gọn gàng và kiểm tra lần cuối trước khi bạn ra về.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. KHÔNG GIAN -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Không gian</p>
+    <h2>Không gian tiệm</h2>
+    <div class="rule"></div>
+    <p class="lead">Gỗ tối, gạch xanh và ghế da — một góc phố cũ chậm rãi giữa lòng thành phố.</p>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1200&q=80&auto=format&fit=crop" alt="Ảnh mẫu: dãy ghế barber trong tiệm"><figcaption>Ảnh mẫu — dãy ghế da và gương lớn.</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=1200&q=80&auto=format&fit=crop" alt="Ảnh mẫu: góc tiệm barber"><figcaption>Ảnh mẫu — góc tiệm với ánh đèn ấm.</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1200&q=80&auto=format&fit=crop" alt="Ảnh mẫu: dụng cụ barber"><figcaption>Ảnh mẫu — dụng cụ của thợ cạo.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FORM ĐẶT LỊCH -->
+<section class="booking" id="dat-lich">
+  <div class="wrap">
+    <p class="kicker">Đặt lịch</p>
+    <h2>Đặt lịch hẹn</h2>
+    <div class="rule"></div>
+    <p class="lead">Điền thông tin bên dưới. Địa chỉ và số điện thoại của tiệm: [CẦN BỔ SUNG].</p>
+    <form id="booking-form">
+      <label for="name">Họ tên</label>
+      <input id="name" name="name" type="text" required placeholder="Họ tên của bạn">
+      <label for="phone">Số điện thoại</label>
+      <input id="phone" name="phone" type="tel" required placeholder="Số điện thoại liên hệ">
+      <label for="service">Dịch vụ quan tâm</label>
+      <select id="service" name="service" required>
+        <option value="">— Chọn dịch vụ —</option>
+        <option>Cắt tóc</option>
+        <option>Cạo râu khăn nóng</option>
+        <option>Combo cắt + cạo</option>
+        <option>Gội + tạo kiểu</option>
+      </select>
+      <label for="time">Giờ mong muốn</label>
+      <input id="time" name="time" type="text" required placeholder="Ví dụ: 9h30 sáng thứ Bảy">
+      <label for="note">Ghi chú</label>
+      <textarea id="note" name="note" placeholder="Kiểu tóc mong muốn, lưu ý thêm..."></textarea>
+      <p style="margin-top:24px"><button class="btn" type="submit">Gửi yêu cầu đặt lịch</button></p>
+      <p class="form-note">Form hiện chỉ nhận thông tin hiển thị — chưa gửi đi thật. Tiệm sẽ liên hệ xác nhận sau khi có thông tin liên hệ chính thức.</p>
+      <div class="form-ok" id="form-ok">Đã ghi nhận thông tin hiển thị của bạn (chỉ trên trình duyệt này, chưa gửi đi thật). Cảm ơn bạn!</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">Ông Thợ Cạo</strong> — Tiệm cắt tóc nam.</p>
+    <p>Địa chỉ: [CẦN BỔ SUNG] · Điện thoại: [CẦN BỔ SUNG]</p>
+    <p>Tất cả ảnh trên trang đều là ảnh mẫu (Unsplash).</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('booking-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('form-ok').classList.add('show');
+});
+</script>
+</body>
+</html>
